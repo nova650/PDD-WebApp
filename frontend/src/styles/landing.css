@@ -1,0 +1,379 @@
+/* ── TravelPal Landing Page ── */
+
+.ps-landing {
+  min-height: 100vh;
+  background: #06070a;
+  color: white;
+  font-family: var(--font-body, 'Plus Jakarta Sans', sans-serif);
+  overflow-x: hidden;
+}
+
+/* Navbar */
+.ps-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.25rem 3rem;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  background: rgba(6, 7, 10, 0.8);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+}
+
+.ps-nav-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.ps-logo-icon {
+  font-size: 1.4rem;
+}
+
+.ps-logo-icon.small {
+  font-size: 1.1rem;
+}
+
+.ps-brand-name {
+  font-family: var(--font-heading, 'Outfit', sans-serif);
+  font-size: 1.25rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, #6366f1, #a855f7);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.ps-nav-links {
+  display: flex;
+  gap: 2rem;
+}
+
+.ps-nav-link {
+  color: #64748b;
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+.ps-nav-link:hover {
+  color: white;
+}
+
+.ps-nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.ps-nav-greeting {
+  font-size: 0.85rem;
+  color: #34d399;
+  font-weight: 600;
+}
+
+/* Buttons */
+.ps-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.6rem 1.25rem;
+  border-radius: 10px;
+  font-family: inherit;
+  font-size: 0.9rem;
+  font-weight: 700;
+  cursor: pointer;
+  border: none;
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+
+.ps-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.ps-btn-primary {
+  background: linear-gradient(135deg, #6366f1, #a855f7);
+  color: white;
+  box-shadow: 0 4px 14px rgba(99, 102, 241, 0.25);
+}
+
+.ps-btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(99, 102, 241, 0.35);
+}
+
+.ps-btn-ghost {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.1);
+  color: #94a3b8;
+}
+
+.ps-btn-ghost:hover {
+  background: rgba(255,255,255,0.09);
+  color: white;
+}
+
+.ps-btn-lg {
+  padding: 0.9rem 2rem;
+  font-size: 1rem;
+}
+
+/* Hero Section */
+.ps-hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 8rem 2rem 4rem;
+  background: radial-gradient(circle at 50% 30%, rgba(99, 102, 241, 0.15) 0%, transparent 60%),
+              radial-gradient(circle at 80% 80%, rgba(168, 85, 247, 0.08) 0%, transparent 50%);
+}
+
+.ps-hero-badge {
+  display: inline-block;
+  padding: 0.4rem 1rem;
+  border-radius: 99px;
+  background: rgba(99, 102, 241, 0.1);
+  border: 1px solid rgba(99, 102, 241, 0.2);
+  color: #818cf8;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  margin-bottom: 2rem;
+}
+
+.ps-hero-title {
+  font-family: var(--font-heading, 'Outfit', sans-serif);
+  font-size: 6rem;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.04em;
+  margin-bottom: 1.5rem;
+}
+
+.ps-title-pancrea {
+  color: white;
+}
+
+.ps-title-scan {
+  background: linear-gradient(135deg, #6366f1, #a855f7);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.ps-hero-subtitle {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #94a3b8;
+  margin-bottom: 1rem;
+}
+
+.ps-hero-desc {
+  font-size: 1rem;
+  color: #64748b;
+  max-width: 640px;
+  line-height: 1.7;
+  margin-bottom: 2.5rem;
+}
+
+/* Feature Badges Row */
+.ps-feature-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  justify-content: center;
+  margin-top: 2.5rem;
+}
+
+.ps-badge {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.45rem 0.9rem;
+  border-radius: 99px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.07);
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: #94a3b8;
+  transition: border-color 0.2s, color 0.2s;
+}
+
+.ps-badge:hover {
+  border-color: rgba(99, 102, 241, 0.3);
+  color: #c4b5fd;
+}
+
+.ps-badge-icon {
+  font-size: 0.9rem;
+}
+
+/* Features Grid */
+.ps-features {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 8rem 2rem;
+}
+
+.ps-section-title {
+  font-family: var(--font-heading, 'Outfit', sans-serif);
+  font-size: 2.5rem;
+  font-weight: 800;
+  text-align: center;
+  margin-bottom: 3.5rem;
+  background: linear-gradient(135deg, white, #94a3b8);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.ps-features-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.ps-feature-card {
+  background: rgba(18, 20, 32, 0.6);
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 18px;
+  padding: 2rem;
+  transition: transform 0.2s, border-color 0.2s;
+}
+
+.ps-feature-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(99, 102, 241, 0.2);
+}
+
+.ps-feature-icon {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.ps-feature-card h3 {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: white;
+  margin-bottom: 0.75rem;
+}
+
+.ps-feature-card p {
+  font-size: 0.875rem;
+  color: #64748b;
+  line-height: 1.6;
+}
+
+/* How It Works */
+.ps-how-it-works {
+  padding: 8rem 2rem;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.ps-steps {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  margin-top: 3rem;
+}
+
+.ps-step {
+  display: flex;
+  gap: 2rem;
+  align-items: flex-start;
+}
+
+.ps-step-num {
+  font-family: var(--font-heading, 'Outfit', sans-serif);
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: rgba(99, 102, 241, 0.3);
+  flex-shrink: 0;
+  width: 80px;
+  text-align: center;
+}
+
+.ps-step-content h3 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: white;
+  margin-bottom: 0.5rem;
+}
+
+.ps-step-content p {
+  color: #64748b;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+/* About */
+.ps-about {
+  padding: 8rem 2rem;
+  text-align: center;
+  background: radial-gradient(circle at 50% 50%, rgba(99, 102, 241, 0.06) 0%, transparent 60%);
+}
+
+.ps-about-inner {
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+.ps-about-desc {
+  color: #64748b;
+  font-size: 1rem;
+  line-height: 1.7;
+  margin: 1.5rem 0 2.5rem;
+}
+
+/* Footer */
+.ps-footer {
+  border-top: 1px solid rgba(255,255,255,0.04);
+  padding: 2.5rem 2rem;
+  background: rgba(4, 5, 8, 0.8);
+}
+
+.ps-footer-inner {
+  max-width: 900px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.ps-footer-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.ps-footer-copy {
+  font-size: 0.8rem;
+  color: #334155;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .ps-hero-title {
+    font-size: 3.5rem;
+  }
+  .ps-features-grid {
+    grid-template-columns: 1fr;
+  }
+  .ps-nav-links {
+    display: none;
+  }
+  .ps-nav {
+    padding: 1rem 1.5rem;
+  }
+}
