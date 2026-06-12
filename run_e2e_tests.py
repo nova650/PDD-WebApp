@@ -346,7 +346,7 @@ def main():
     options.add_argument("--window-size=1280,800")
     
     try:
-        driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options)
+        driver = webdriver.Chrome(options=options)
     except Exception as e:
         log_event("ERROR", f"Failed to initialize Chrome Driver: {e}")
         backend_proc.terminate()
