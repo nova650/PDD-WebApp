@@ -6,9 +6,11 @@ import socket
 import datetime
 import subprocess
 from selenium import webdriver
+from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+from webdriver_manager.chrome import ChromeDriverManager
 import openpyxl
 from openpyxl.styles import Font, PatternFill, Alignment, Border, Side
 
@@ -16,13 +18,6 @@ from openpyxl.styles import Font, PatternFill, Alignment, Border, Side
 BACKEND_PORT = 5001
 FRONTEND_PORT = 5173
 BASE_URL = f"http://localhost:{FRONTEND_PORT}"
-
-# Determine if we are running from the parent directory or the webapp directory
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-if os.path.exists(os.path.join(BASE_DIR, "webapp")):
-    WEBAPP_DIR = os.path.join(BASE_DIR, "webapp")
-else:
-    WEBAPP_DIR = BASE_DIR
 
 # Global lists for test logging
 test_results = []
@@ -94,7 +89,7 @@ def wait_for_port(port, timeout=20):
                 time.sleep(0.5)
 
 def clean_database():
-    db_path = os.path.join(WEBAPP_DIR, "backend", "db", "database.sqlite")
+    db_path = os.path.join(os.path.dirname(__file__), "webapp", "backend", "db", "database.sqlite")
     if os.path.exists(db_path):
         try:
             os.remove(db_path)
@@ -314,12 +309,12 @@ def main():
     # Start Backend
     log_event("INFO", "Starting Backend Server on Port 5001...")
     backend_log = open("backend.log", "w")
-    backend_proc = subprocess.Popen(["node", "server.js"], cwd=os.path.join(WEBAPP_DIR, "backend"), stdout=backend_log, stderr=backend_log)
+    backend_proc = subprocess.Popen(["node", "server.js"], cwd="webapp/backend", stdout=backend_log, stderr=backend_log)
     
     # Start Frontend
     log_event("INFO", "Starting Frontend Dev Server on Port 5173...")
     frontend_log = open("frontend.log", "w")
-    frontend_proc = subprocess.Popen(["npm", "run", "dev"], cwd=os.path.join(WEBAPP_DIR, "frontend"), stdout=frontend_log, stderr=frontend_log)
+    frontend_proc = subprocess.Popen(["npm", "run", "dev"], cwd="webapp/frontend", stdout=frontend_log, stderr=frontend_log)
     
     # Wait for servers to be active
     if not wait_for_port(BACKEND_PORT, 20):
@@ -344,7 +339,7 @@ def main():
     options.add_argument("--window-size=1280,800")
     
     try:
-        driver = webdriver.Chrome(options=options)
+        driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options)
     except Exception as e:
         log_event("ERROR", f"Failed to initialize Chrome Driver: {e}")
         backend_proc.terminate()
